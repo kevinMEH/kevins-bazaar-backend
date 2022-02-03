@@ -30,14 +30,18 @@ async function createProduct() {
     while(thumbnail.substring(0, 4) !== "http") {
         thumbnail = await question("Product image URL: ")
     }
-
+    thumbnail = thumbnail.trim();
+    
     let price = await question("Price of item: ");
+    price = price.trim();
     if(price.charAt(0) !== "$") price = "$" + price;
 
     let url = await question("Product URL: ");
+    url = url.trim();
     if(url === "") url = name.toLowerCase().split(" ").join("-");
 
     let desc = await question("Product Description: ");
+    desc = desc.trim();
     if(desc === "") desc = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc hendrerit ex lacus, pretium blandit orci feugiat ut. Etiam leo nibh, viverra et felis ac, feugiat laoreet augue. Duis viverra mauris et ante pellentesque facilisis.";
 
     return {
