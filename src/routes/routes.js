@@ -13,7 +13,8 @@ routes.route("/api/products").get(async (request, response) => {
     const filter = request.query.filter + ""; // TODO: Sanitize? Important!!!
     const options = filter !== "undefined" ? { name: { $regex: filter, $options: "i" }} : {}; // Ignore case
     
-    collection.find(options, { projection: { _id: 0 } }).skip((page - 1) * 8).limit(8).toArray((error, result) => {
+    // No desc to save data (Because desc isn't needed for catalog)
+    collection.find(options, { projection: { _id: 0, desc: 0 } }).skip((page - 1) * 8).limit(8).toArray((error, result) => {
         if(error) {
             response.status(502).send("Error fetching products.");
         } else {
