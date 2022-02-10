@@ -13,7 +13,7 @@ app.use(cors());
 app.use(express.json());
 app.use(require("./routes/routes"))
 
-app.use((err, _req, res) => {
+app.use((err, _req, res, _next) => {
     console.error(err.stack);
     res.status(500).send("Server Unavailable")
 });
