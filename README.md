@@ -2,6 +2,8 @@
 
 Express and MongoDB REST API backend for [kevins-bazaar](https://github.com/kevinMEH/kevins-bazaar)
 
+Sample API endpoint available at `https://api.bazaar.liao.gg`.
+
 ## Features
 
 - Request specific product pages
