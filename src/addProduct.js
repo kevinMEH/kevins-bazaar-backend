@@ -57,7 +57,7 @@ connectToServer((error = false) => {
 
     let collection = getDatabase().collection("products");
     createProduct().then(product => {
-        collection.insertOne(product, (error, response) => {
+        collection.insertOne(product, (error, _response) => {
             if(error) throw error;
             console.log("Insert product success.");
             console.log(product);
